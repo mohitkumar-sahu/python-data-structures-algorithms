@@ -5,8 +5,6 @@ def palindrome(str):
         return str[-1]+palindrome(str[:-1])
 
 
-
-
 str='madam'
 if str==palindrome(str):
     print(palindrome)
