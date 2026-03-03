@@ -102,9 +102,7 @@ class CircularLinkedList:
             while temp.addr != self.head and cnt+1<idx:
                 temp=temp.addr
                 cnt+=1
-            temp.addr=temp.addr.addr
-
-            
+            temp.addr=temp.addr.addr       
         
     def display(self):
         if self.head is None:
@@ -117,7 +115,6 @@ class CircularLinkedList:
                 if temp==self.head:
                     break
             print()
-
 
 cl1=CircularLinkedList()
 while True:
