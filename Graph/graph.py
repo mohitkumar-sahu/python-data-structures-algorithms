@@ -1,3 +1,5 @@
+# Implementation of Graph using Dictionary
+
 class Graph:
     def __init__(self):
         self.g1={}
@@ -33,6 +35,33 @@ class Graph:
             del self.g1[vertex]
             return True
         return False
+    
+    #B.F.S Traversing
+    def bfs_traversing(self,vertex):
+        if vertex in self.g1:
+            visited=[vertex]
+            queue=[vertex]
+            while queue:
+                dvertex=queue.pop(0)
+                print(dvertex,end=' ')
+                for adj_vertex in self.g1[dvertex]:
+                    if adj_vertex not in visited:
+                        visited.append(adj_vertex)
+                        queue.append(adj_vertex)
+
+
+    #D.F.S Traversing
+    def dfs_traversing(self,vertex):
+        if vertex in self.g1:
+            visited=[vertex]
+            stack=[vertex]
+            while stack:
+                dvertex=stack.pop()
+                print(dvertex,end=' ')
+                for adj_vertex in self.g1[dvertex]:
+                    if adj_vertex not in visited:
+                        visited.append(adj_vertex)
+                        stack.append(adj_vertex)
 
 o1=Graph()
 o1.addVertex('A')
@@ -45,6 +74,11 @@ o1.addEdge('A','C')
 o1.addEdge('A','D')
 o1.addEdge('B','E')
 o1.addEdge('D','E')
-o1.removeEdges('C','A')
-o1.removeVertex('C')
+# o1.removeEdges('C','A')
+# o1.removeVertex('C')
 o1.display()
+print('BFS Traversing')
+o1.bfs_traversing('A')
+print()
+print('DFS Traversing')
+o1.dfs_traversing('A')
